@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ResimEkle";
+}
+@using EmlakProject.Models
+@model ResimTablosu
+
+<section style="background-image: url(/Content/ecoverde/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    *<section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+                    <span class="subheading">Yeni İlan Ekle</span>
+                    <h2 class="mb-2">Resim Ekle</h2>
+                </div>
+            </div>
+
+            <div class="row block-9 justify-content-center mb-5">
+                <div class="col-md-8 mb-md-5">
+                    <div class="form-group bg-light p-5">
+                        @*@using (Html.BeginForm("ResimEkle", "Ilan", FormMethod.Post, new
+                            {
+                                enctype = "multipart/form-data"
+                            }))
+                            {
+                                <div>
+                                    <input type="file" title="search image" id="file" name="file" />
+                                </div>
+                                <input type="hidden" name="id" value="1" />
+                                <input type="submit" title="save" />
+                            }*@
+
+                        <form action="/Ilan/ResimEkle" method="post" enctype="multipart/form-data">
+
+                            <label for="file1">Filename:</label>
+                            <input type="file" name="files" id="file1" /><br />
+
+                            <label for="file2">Filename:</label>
+                            <input type="file" name="files" id="file2" /><br />
+
+                            <label for="file3">Filename:</label>
+                            <input type="file" name="files" id="file3" /><br />
+
+                            <input type="submit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

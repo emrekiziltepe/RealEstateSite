@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<section style="background-image: url(/Content/ecoverde/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+                    <span class="subheading">Profil</span>
+                    <h2 class="mb-2">Üye Girişi Yap</h2>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+                    <h2 class="mb-2" style="color:red">@ViewBag.mesaj</h2>
+                </div>
+            </div>
+
+            <div class="row block-9 justify-content-center mb-5">
+                <div class="col-md-6 mb-md-5">
+                    <form role="form" class="bg-light p-5 login-form" method="post" action="/Login/Login">
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-3 control-label">Email:</label>
+                            <div class="col-sm-9">
+                                <input autocomplete="off" class="form-control" id="inputEmail" placeholder="Email" type="email" name="uyeMail">
+                                <span class="help-block text-muted">Örn Email: email@ornek.com</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-sm-3 control-label">Şifre:</label>
+                            <div class="col-sm-9">
+                                <input autocomplete="off" class="form-control" id="inputPassword" placeholder="Password" type="password" name="uyeSifre">
+                                <span class="help-block text-muted">Örn Şifre: 12345678</span>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <button id="submit-form" type="submit" class="btn btn-success py-2 px-4 rounded">Giriş Yap</button>
+                        @*<a href="/Content/pages-forgot-password.html" class="btn btn-link btn-sm pull-right">I forgot my password</a>*@
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated bg-light p-5 login-form">
+                <span class="subheading">Üye değil misiniz?</span><br />
+                <span>
+                    <a href="/Login/SignUp" class="btn btn-primary py-2 px-4 rounded">Üye Ol</a>
+                </span>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+</section>

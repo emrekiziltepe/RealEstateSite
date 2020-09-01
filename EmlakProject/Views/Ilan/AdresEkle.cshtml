@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "AdresEkle";
+}
+
+@using EmlakProject.Models
+
+<section style="background-image: url(/Content/ecoverde/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    *<section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+                    <span class="subheading">Yeni İlan Ekle</span>
+                    <h2 class="mb-2">Adres Ekle</h2>
+                </div>
+            </div>
+
+            <div class="row block-9 justify-content-center mb-5">
+                <div class="col-md-8 mb-md-5">
+                    <form action="/Ilan/AdresEkle" method="post" role="form" class="bg-light p-5 contact-form">
+                        <div class="form-group">
+                            <label>İl Seçiniz: </label>
+                            <select name="adresIlID" class="form-control">
+                                @foreach (var item in ViewBag.iller)
+                                {
+                                    <option value="@item.ilID">@item.ilAdi</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>İlce Seçiniz: </label>
+                            <select name="adresIlceID" class="form-control">
+                                @foreach (var item in ViewBag.ilceler)
+                                {
+                                    <option value="@item.ilceID">@item.ilceAdi</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mahalle Seçiniz: </label>
+                            <select name="adresMahalleID" class="form-control">
+                                @foreach (var item in ViewBag.mahalleler)
+                                {
+                                    <option value="@item.mahalleID">@item.mahalleAdi</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Adres Detay</label>
+                            <input type="text" class="form-control" id="input-demo-a" placeholder="Cadde, sokak, daire no ve kapı no giriniz." name="adresDetay">
+                        </div>
+                        <button type="submit" class="btn btn-primary py-2 px-4 pull-right">Adres Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

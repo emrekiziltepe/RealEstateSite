@@ -1,0 +1,132 @@
+﻿@using EmlakProject.Models
+@{
+    ViewBag.Title = "IlanGuncelle";
+}
+@model IlanTablosu
+
+<section style="background-image: url(/Content/ecoverde/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    *<section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+                    <span class="subheading">İlanlarım</span>
+                    <h2 class="mb-2">İlan Bilgilerini Güncelle</h2>
+                </div>
+            </div>
+
+            <div class="row block-9 justify-content-center mb-5">
+                <div class="col-md-8 mb-md-5">
+                    <form action="/Ilan/IlanGuncelle/" method="post" role="form" class="bg-light p-5 contact-form">
+                        <div class="form-group">
+                            <label for="input-demo-a">İlan Başlığı</label>
+                            <input value="@Model.ilanBaslik" type="text" class="form-control" id="input-demo-a" placeholder="İlan başlığını giriniz" name="ilanBaslik">
+                        </div>
+                        <input type="hidden" name="ilanAdresID" value="@Model.ilanAdresID" />
+                        <div class="form-group">
+                            <label for="input-demo-v">İlçe Seçiniz</label>
+                            <select id="input-demo-v" class="form-control" name="ilanTuruID">
+                                @foreach (var item in ViewBag.ilanTurleri)
+                                {
+                                    if (@item.ilanTuruID == Model.ilanTuruID)
+                                    {
+                                        <option value="@item.ilanTuruID" selected>@item.ilanTuru</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.ilanTuruID">@item.ilanTuru</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-v">İlçe Seçiniz</label>
+                            <select id="input-demo-v" class="form-control" name="ilanKonutTuruID">
+                                @foreach (var item in ViewBag.konutTurleri)
+                                {
+                                    if (@item.konutTuruID == Model.ilanKonutTuruID)
+                                    {
+                                        <option value="@item.konutTuruID" selected>@item.konutTuru</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.konutTuruID">@item.konutTuru</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Fiyat</label>
+                            <input value="@Model.ilanFiyat" type="number" class="form-control" id="input-demo-a" placeholder="İlan için istediğiniz fiyatı girin." name="ilanFiyat">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Oda Sayısı</label>
+                            <input value="@Model.ilanOdaSayisi" type="number" class="form-control" id="input-demo-a" placeholder="Evdeki oda sayısını giriniz." name="ilanOdaSayisi">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Banyo Sayısı</label>
+                            <input value="@Model.ilanBanyoSayisi" type="number" class="form-control" id="input-demo-a" placeholder="Evdeki banyo sayısını giriniz." name="ilanBanyoSayisi">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Salon Sayısı</label>
+                            <input value="@Model.ilanSalonSayisi" type="number" class="form-control" id="input-demo-a" placeholder="Evdeki salon sayısını giriniz." name="ilanSalonSayisi">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Metrekare</label>
+                            <input value="@Model.ilanM2" type="number" class="form-control" id="input-demo-a" placeholder="Evin metrekare cinsinden boyutunu giriniz." name="ilanM2">
+                        </div>
+                        <div class="form-group label-floating">
+                            <label for="input-demo-a">Yayın Tarihi</label>
+                            <input value="@Model.ilanYayinTarihi" type="datetime" class="form-control" id="input-demo-a" name="ilanYayinTarihi" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-v">Bina Yaşı</label>
+                            <select id="input-demo-v" class="form-control" name="ilanBinaYasiID">
+                                @foreach (var item in ViewBag.binaYaslari)
+                                {
+                                    if (@item.binaYasiID == Model.ilanBinaYasiID)
+                                    {
+                                        <option value="@item.binaYasiID" selected>@item.binaYasi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.binaYasiID">@item.binaYasi</option>
+                                    }
+
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-v">Isınma Tipi</label>
+                            <select id="input-demo-v" class="form-control" name="ilanIsinmaID">
+                                @foreach (var item in ViewBag.isinmalar)
+                                {
+                                    if (item.isinmaID == Model.ilanIsinmaID)
+                                    {
+                                        <option value="@item.isinmaID" selected>@item.isinmaTuru</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.isinmaID">@item.isinmaTuru</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Eşya Durumu</label>
+                            <input value="@Model.ilanEsyaDurumu" type="number" class="form-control" id="input-demo-a" placeholder="Ev eşyalı ise 1 eşyasız ise 0 yazınız." name="ilanEsyaDurumu">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-demo-a">Açıklama</label>
+                            <input value="@Model.ilanAciklama" type="text" class="form-control" id="input-demo-a" placeholder="İlan hakkında ayrıca belirtmek istediğiniz şeyleri yazınız." name="ilanAciklama">
+                        </div>
+                        <input type="hidden" name="ilanSatisDurumu" value="@Model.ilanSatisDurumu" />
+                        <input type="hidden" name="ilanOnayDurumu" value="@Model.ilanOnayDurumu" />
+                        <input type="hidden" name="ilanID" value="@Model.ilanID" />
+                        <input type="hidden" name="ilanUyeID" value="@ViewBag.uyeIdGetir" />
+                        <button type="submit" class="btn btn-primary py-2 px-4 pull-right">İlanı Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
