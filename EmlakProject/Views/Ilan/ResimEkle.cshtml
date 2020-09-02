@@ -18,18 +18,6 @@
             <div class="row block-9 justify-content-center mb-5">
                 <div class="col-md-8 mb-md-5">
                     <div class="form-group bg-light p-5">
-                        @*@using (Html.BeginForm("ResimEkle", "Ilan", FormMethod.Post, new
-                            {
-                                enctype = "multipart/form-data"
-                            }))
-                            {
-                                <div>
-                                    <input type="file" title="search image" id="file" name="file" />
-                                </div>
-                                <input type="hidden" name="id" value="1" />
-                                <input type="submit" title="save" />
-                            }*@
-
                         <form action="/Ilan/ResimEkle" method="post" enctype="multipart/form-data">
 
                             <label for="file1">Resim 1:</label>
